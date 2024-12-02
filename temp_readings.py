@@ -17,5 +17,3 @@ def temp_reading():
     city_temp = round(((city_temp_max + city_temp_min)/2), 1)
 
     return city_temp
-
-print(temp_reading() ) 
