@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Pot_about
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8 py-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h2>{{ pot.pot_location }}</h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-10">
+                                <h3 class="card-title">Pot data:</h3>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{{ url_for('refresh', id=id) }}" class="btn btn-sm btn-secondary">Refresh</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        <div class="container">
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-6">
+                                    <br/>
+                                    <b>Plant:</b> {{ pot.pot_occupied.plant_name }}<br/>
+                                    <b>Outer temperature:</b> {{ city_temp }}°C<br/>
+                                    <b>Sunlight intensity:</b> {{ pot.sun_value }}<br/>
+                                    <b>Humidity:</b> {{ pot.hum_value }}%<br/>
+                                    <b>Saltiness:</b> {{ pot.salt_value }}%<br/>
+                                    <b>Fertilizer level:</b> {{ pot.fert_value }}<br/>
+                                    <hr>
+                                    <h3>Data preview:</h3>
+                                    <br/>
+                                    <div class="text-center">
+                                        <img src="{{url_for('plot_png', id=id)}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    {% if pot.pot_occupied.plant_pic %}
+                                    <img src="{{url_for('static', filename='images/'+ pot.pot_occupied.plant_pic)}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                                    {% else %}
+                                    <img src="{{url_for('static', filename='images/img_placeholder.jpg')}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                                    {% endif %}
+                                </div>
+
+                                <div class="col-md-12 text-end">
+                                    <br/>
+                                    <a href="{{ url_for('pot_update', id=id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url_for('pot_delete', id=id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url_for('pot_dashboard') }}" class="btn btn-sm btn-success">Back to PotBase!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

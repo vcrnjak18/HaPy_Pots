@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-6 col-xl-5">
+        <img src="{{url_for('static', filename='images/girl_pot.jpg')}}"
+          class="img-fluid" alt="Girl watering plants">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="col-md-12 text-center">
+            <h1>Welcome to</h1>
+            <h1>HapPy Pots App!</h1>
+            <p>Please <b>log in</b> or <b>register</b> first!</p>
+        </div>
+
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            {{ form.mail.label(class_="form-label") }}
+            {{ form.mail(class_="form-control") }}
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            {{ form.password_to_chk.label(class_="form-label") }}
+            {{ form.password_to_chk(class_="form-control") }}
+          </div>
+          
+          <!-- Submit button -->
+            <div class="col-md-12 text-center">
+              {{ form.submit(class_="btn btn-success btn-lg btn-block") }}
+              <p></p>
+              <p>Not a member? <a href="{{ url_for('sign_up') }}">Register</a></p>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

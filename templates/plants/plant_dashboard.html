@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+PlantBase
+{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-2">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Plant Base</h1>
+        <p class="lead text-muted">Here you can find all of your plants!</p>
+        <hr>
+      </div>
+    </div>
+</section>
+
+
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for plant in plants %}
+                {% if plant.user_id_plant == current_user.id %}
+                    <div class="col">
+                        <div class="card shadow-sm">  
+                            {% if plant.plant_pic %}
+                                <img src="{{url_for('static', filename='images/'+ plant.plant_pic)}}" class="img-fluid" width="400" alt="Slika">
+                            {% else %}
+                                <img src="{{url_for('static', filename='images/img_placeholder.jpg')}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                            {% endif %}
+
+                            <div class="card-body">
+                                <b>Plant name:</b> {{ plant.plant_name }}<br/>
+                                <b>Sunlight intensity requirement:</b> {{ plant.sun_low }} - {{ plant.sun_hi }}<br/>
+                                <b>Humidity requirement:</b> {{ plant.hum_low }} - {{ plant.hum_hi }}<br/>
+                                <b>Saltiness tolerance:</b> {{ plant.salt_low }} - {{ plant.salt_hi }}<br/>
+                                <b>Fertilizer level:</b> {{ plant.fert_low }} - {{ plant.fert_hi }}<br/>
+                                <div class="d-flex justify-content-between align-items-center float-end">
+                                    <a href="{{ url_for('plant_about', id=plant.id) }}" class="btn btn-sm btn-outline-success">View</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        
+    
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{{url_for('static', filename='images/plants.jpg')}}" class="img-fluid" alt="Plants">
+                        <div class="card-body">
+                            <br/>
+                            <br/>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ url_for('add_plant') }}" class="btn btn-success btn-lg btn-block">Add a new plant!</a>
+                            </div>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}

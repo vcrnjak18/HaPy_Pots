@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+User_about
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6 py-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h2>{{ current_user.first_name }} {{ current_user.last_name }}</h2>
+                </div>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-12">
+                                <h3 class="card-title">User info:</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-text">
+                        <div class="container">
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-12">
+                                    <br/>
+                                    <b>ID:</b> {{ current_user.id }}<br/>
+                                    <b>First and last name:</b> {{ current_user.first_name }} {{ current_user.last_name }}<br/>
+                                    <b>Username:</b> {{ current_user.username }}<br/>
+                                    <b>E-mail:</b> {{ current_user.mail }}<br/>
+                                    <b>About you:</b> {{ current_user.about }}<br/>
+                                    <br/>
+                                </div>
+                                <hr>
+                                <div class="col-md-8 text-center">
+                                    <br/>
+                                    <a href="{{ url_for('users_update', id=id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ url_for('users_delete', id=id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ url_for('index') }}" class="btn btn-sm btn-success">Back to HomePage!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

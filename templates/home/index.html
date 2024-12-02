@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="row featurette text-start">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2 class="featurette-heading fw-normal lh-1"><span class="text-muted">Welcome to the HapPy Pots app!</span></h2>
+        <p class="lead">A place where every green life matters!</p>
+      </div>
+    </div>
+
+<hr class="featurette-divider">
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-6 col-xl-5">
+          <img src="{{url_for('static', filename='images/dead1.png')}}"
+            class="img-fluid" alt="Wilted plant">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <div class="col-md-12 text-center">
+            <h3>Have you ever bought a lovely plant, <br/>sat it on a windowsill<br/>...<br/>only to find it a week later looking like this?</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-6 col-xl-5">
+          <img src="{{url_for('static', filename='images/cacti.png')}}"
+            class="img-fluid" alt="Overwatered cactii">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <div class="col-md-12 text-center">
+              <h3>Or received one of these for your b-day, <br/>and after a week,<br/> you found it like this?</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-6 col-xl-5">
+          <img src="{{url_for('static', filename='images/naked.jpg')}}"
+            class="img-fluid" alt="Dead no leaves plant">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <div class="col-md-12 text-center">
+              <h2>Or like this...?</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-6 col-xl-5">
+          <img src="{{url_for('static', filename='images/blue.jpg')}}"
+            class="img-fluid" alt="Feeling blue">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <div class="col-md-12 text-center">
+            <h1>Leaving you feeling like this? ...</h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-12">
+        <p class="lead">If this sounds familiar to you, this is a right place for you!</p>
+        <h4><span class="text-muted">Because...</span></h4><br/>
+        <h2 class="featurette-heading fw-normal lh-1"><span class="text-muted">HapPy Pots = HapPy Plants = HapPy Life</span></h2>
+      </div>
+    </div>
+
+<hr class="featurette-divider">
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+PotBase
+{% endblock %}
+
+
+{% block content %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-2">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Pot Base</h1>
+        <p class="lead text-muted">Here you can find all of your potted plants!</p>
+        <hr>
+        <a href="{{url_for('refresh_dash')}}" class="btn btn-lg btn-secondary">Refresh</a>
+      </div>
+    </div>
+</section>
+
+
+
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for pot in pots %}
+                {% if pot.user_id_pot == current_user.id %}
+                    {% if pot.plant_id != '' %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5>The pot on the {{ pot.pot_location }}</h5>
+                                <hr> 
+                                    {% for plant in plants %}
+                                        {% if pot.plant_id == plant.id %}
+                                            {% if plant.plant_pic %}
+                                                <img src="{{url_for('static', filename='images/'+ plant.plant_pic)}}" class="img-fluid" width="400" alt="Slika">
+                                            {% else %}
+                                                <img src="{{url_for('static', filename='images/img_placeholder.jpg')}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                                            {% endif %}
+                                            <p></p>
+                                            <b>Plant potted:</b> {{ plant.plant_name }}
+                                        {% endif %}
+                                    {% endfor %}
+                                
+                                <hr>
+                                
+                                    <b>Outer temperature:</b> {{ city_temp }}°C<br/>
+                                    <b>Sunlight intensity:</b> {{ pot.sun_value }}<br/>
+                                    <b>Humidity:</b> {{ pot.hum_value }}%<br/>
+                                    <b>Saltiness:</b> {{ pot.salt_value }}%<br/>
+                                    <b>Fertilizer level:</b> {{ pot.fert_value }}<br/>
+                                    <hr>
+                                    <b>Actions taken:</b>
+                                    {% if (pot.sun_value != ' ') and pot.plant_id %}
+                                        {% if pot.sun_value < pot.pot_occupied.sun_low %}
+                                            <br/>UV lamp is on!
+                                        {% elif pot.sun_value > pot.pot_occupied.sun_hi %}
+                                            <br/>Parasol is on!
+                                        {% endif %}
+                                    {% endif %}
+
+                                    {% if (pot.hum_value != ' ') and pot.plant_id %}
+                                        {% if pot.hum_value < pot.pot_occupied.hum_low %}
+                                            <br/>Watering is on!
+                                        {% elif pot.hum_value > pot.pot_occupied.hum_hi %}
+                                            <br/>Dehumidifier is on!
+                                        {% endif %}
+                                    {% endif %}    
+
+                                    {% if (pot.salt_value != ' ') and pot.plant_id %}
+                                        {% if pot.salt_value < pot.pot_occupied.salt_low %}
+                                            <br/>Spoon of salt added!
+                                        {% elif pot.salt_value > pot.pot_occupied.salt_hi %}
+                                            <br/>Spoon of sugar added!
+                                        {% endif %}
+                                    {% endif %}
+
+                                    {% if (pot.fert_value != ' ') and pot.plant_id %}
+                                        {% if pot.fert_value < pot.pot_occupied.fert_low %}
+                                            <br/>Fertilizer added!
+                                        {% elif pot.fert_value > pot.pot_occupied.fert_hi %}
+                                            <br/>More neutral soil added!
+                                        {% endif %}
+                                    {% endif %}    
+                                
+
+                                
+                                    <div class="d-flex justify-content-between align-items-center float-end">
+                                        <a href="{{ url_for('pot_about', id=pot.id) }}" class="btn btn-sm btn-outline-success">View</a>
+                                    </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        
+    
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{{url_for('static', filename='images/pots.jpg')}}" class="img-fluid" alt="Pots">
+                        <div class="card-body">
+                            <br/>
+                            <br/>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ url_for('add_pot') }}" class="btn btn-success btn-lg btn-block">Add a new pot!</a>
+                            </div>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+
+                
+        </div>
+
+        <br/>
+        <div class="d-flex justify-content-center align-items-">
+            <button class="btn btn-secondary btn-lg btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Show empty pots
+            </button>
+        </div>
+        <br/>
+
+        <div class="collapse" id="collapseExample">
+            <div class="card-body">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for pot in pots %}
+                        {% if pot.user_id_pot == current_user.id %}
+                            {% if pot.plant_id == '' %}
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        
+                                            <h5>The pot on the {{ pot.pot_location }}</h5>
+                                            <hr> 
+                                            <img src="{{url_for('static', filename='images/pots.jpg')}}" class="img-fluid" width="400" alt="Clay pots">
+                                            <p></p>
+                                            <b>Plant potted:</b> Nothing is potted here!
+                                        
+                                            <div class="col-md-12 text-end">
+                                                <br/>
+                                                <a href="{{ url_for('pot_update', id=pot.id) }}" class="btn btn-sm btn-outline-warning">Update</a>
+                                                <a href="{{ url_for('pot_delete', id=pot.id) }}" class="btn btn-sm btn-outline-danger">Delete</a>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endif %}    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+ 
+{% endblock %}

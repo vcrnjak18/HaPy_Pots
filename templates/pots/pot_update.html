@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Update your pot
+{% endblock %}
+
+
+{% block content %}
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-7 col-lg-6 col-xl-5">
+            <form action="/pot_update/{{ pot_to_upt.id }}" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                {% if pot_to_upt.pot_occupied.plant_pic %}
+                <img src="{{url_for('static', filename='images/'+ pot_to_upt.pot_occupied.plant_pic)}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                {% else %}
+                <img src="{{url_for('static', filename='images/img_placeholder.jpg')}}" class="img-fluid" width="400" alt="Plant foliage default image placeholder">
+                {% endif %}
+        </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <div class="col-md-12 text-center">
+                    <h3>Update your pot's info!</h3><br/>
+                </div>
+
+                <div class="mb-3">
+                    {{ form.pot_location.label(class_="form-label") }}
+                    {{ form.pot_location(class_="form-control", value=pot_to_upt.pot_location) }}
+                </div>
+                <p>Pick a plant to pot:</p>
+                <select class="form-select" name="plants" class="Input">
+                    
+                        {% if pot_to_upt.pot_occupied.id %}
+                            <option value={{pot_to_upt.pot_occupied.id}} selected>{{pot_to_upt.pot_occupied.plant_name}}</option>
+                        {% else %}
+                            <option selected></option>
+                        {% endif %}
+                    
+                        {% for plant in plant_to_upt %}
+                            {% if plant.user_id_plant == current_user.id %}
+                                <option value = {{plant.id}}>{{plant.plant_name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    
+                </select>
+
+                <div class="col-md-12 text-center">
+                    </br>
+                    {{ form.submit(class_="btn btn-success btn-lg btn-block") }}
+                    {% if pot_to_upt.pot_occupied.id %}
+                        <a href="{{ url_for('pot_about', id=id) }}" class="btn btn-secondary btn-lg btn-block">Cancel</a>
+                    {% else %}
+                        <a href="{{ url_for('pot_dashboard') }}" class="btn btn-secondary btn-lg btn-block">Cancel</a>
+                    {% endif %}
+                </div>
+           </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
