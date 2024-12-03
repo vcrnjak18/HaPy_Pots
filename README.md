@@ -1,4 +1,4 @@
-# HapPy Pots
+# HaPy Pots
 A collaboration project with my girlfriend for a Python developer program in 2020.
 
 ## Short description
