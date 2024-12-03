@@ -19,3 +19,10 @@ their environment.
 ### Preview
 ![](HaPy_Pots_preview.gif)
 *Screen recorded with Gifcap by [joaomoreno](https://github.com/joaomoreno/gifcap)*
+
+## Usage
+As the project isn't connected to the WSGI server yet, the only way of checking the features is to
+download the development version.
+All required libraries to run the project can be found in the `requirement.txt` file. It is recommended
+to set up a [virtual environment](https://docs.python.org/3/library/venv.html), and install all libraries 
+there to avoid unexpected issues.
