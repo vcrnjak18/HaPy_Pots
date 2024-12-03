@@ -9,7 +9,7 @@ and the soil (RaspberryPi simulations) and take action to make sure plants are h
 their environment.
 
 
-> ## Web app features:
+## App features:
 > - homepage intro
 > - login/logout -> should've added option "forgot your password?"
 > - CRUD databases, UI
