@@ -17,5 +17,5 @@ their environment.
 - provides a plot of values for each pot
 
 ### Preview
-![](HaPy Pots app.gif)
+![](HaPy_Pots_preview.gif)
 *Screen recorded with Gifcap by [joaomoreno](https://github.com/joaomoreno/gifcap)*
