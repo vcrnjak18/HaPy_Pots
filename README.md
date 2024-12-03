@@ -1,5 +1,5 @@
 # HaPy Pots
-A collaboration project with my girlfriend for a Python developer program in 2020.
+A collaboration project with my girlfriend for a Python developer program in 20/21.
 
 ## Short description
 Web app that features plant pots equiped with sensors that care about plant wellbeing.
@@ -20,7 +20,7 @@ their environment.
 ![](HaPy_Pots_preview.gif)
 *Screen recorded with Gifcap by [joaomoreno](https://github.com/joaomoreno/gifcap)*
 
-## Usage & contribution
+## Usage
 As the project isn't connected to the WSGI server yet, the only way of checking the features is to
 download the development version.
 All required libraries to run the project can be found in the `requirement.txt` file. It is recommended
@@ -39,4 +39,6 @@ database won't be available.*
 3. `pip install -r requirements.txt`
 4. `flask run`
 5. open the link generated in terminal
-6. Have fun :) 
+6. Have fun :)
+
+## Contributing
