@@ -9,10 +9,12 @@ and the soil (RaspberryPi simulations) and take action to make sure plants are h
 their environment.
 
 
-> Web app features:
+> ## Web app features:
 > - homepage intro
-- login/logout -> should've added option "forgot your password?"
-- CRUD databases, UI
-- fetches min and max city temperature from daily DHMZ xml file; returns average
-- in combination with RaspberryPi simulates plant conditions (sunlight,humidity, saltiness, fertilizer)
-- provides a plot of values for each pot
+> - login/logout -> should've added option "forgot your password?"
+> - CRUD databases, UI
+> - fetches min and max city temperature from daily DHMZ xml file; returns average
+> - in combination with RaspberryPi simulates plant conditions (sunlight,humidity, saltiness, fertilizer)
+> - provides a plot of values for each pot
+
+
