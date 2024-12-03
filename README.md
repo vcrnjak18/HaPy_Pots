@@ -1,5 +1,5 @@
 # HapPy Pots
->blockquote A collaboration project with my girlfriend for a Python developer program
+> A collaboration project with my girlfriend for a Python developer program
 
 ## Short description
 Web app that features plant pots equiped with sensors that care about plant wellbeing.
@@ -9,8 +9,8 @@ and the soil (RaspberryPi simulations) and take action to make sure plants are h
 their environment.
 
 
->blockquote Web app features:
-- homepage intro
+> Web app features:
+> - homepage intro
 - login/logout -> should've added option "forgot your password?"
 - CRUD databases, UI
 - fetches min and max city temperature from daily DHMZ xml file; returns average
