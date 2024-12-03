@@ -27,6 +27,7 @@ All required libraries to run the project can be found in the `requirement.txt` 
 to set up a [virtual environment](https://docs.python.org/3/library/venv.html), and install all libraries 
 there to avoid unexpected issues of running the Flask app (for this project, the virtual environment folder was
 named `hapy_pots_venv`).
+
 ---
 **diclaimer:**
 To run the project completely, both `HaPy Pots` and `HRPi` folders are required, as the second one runs on the RaspberryPi
