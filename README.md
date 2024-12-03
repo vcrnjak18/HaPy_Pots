@@ -20,13 +20,14 @@ their environment.
 ![](HaPy_Pots_preview.gif)
 *Screen recorded with Gifcap by [joaomoreno](https://github.com/joaomoreno/gifcap)*
 
-## Usage
+## Usage & contribution
 As the project isn't connected to the WSGI server yet, the only way of checking the features is to
 download the development version.
 All required libraries to run the project can be found in the `requirement.txt` file. It is recommended
 to set up a [virtual environment](https://docs.python.org/3/library/venv.html), and install all libraries 
 there to avoid unexpected issues of running the Flask app (for this project, the virtual environment folder was
 named `hapy_pots_venv`).
+
 **diclaimer:**
 *To run the project completely, both `HaPy Pots` and `HRPi` folders are required, as the second one runs on the RaspberryPi
 virtual machine to mimic sensor changes. The app runs fine without it, but "Refresh" buttons will not work, as the RPi
@@ -38,3 +39,4 @@ database won't be available.*
 3. `pip install -r requirements.txt`
 4. `flask run`
 5. open the link generated in terminal
+6. Have fun :) 
