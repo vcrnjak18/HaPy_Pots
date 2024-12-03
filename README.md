@@ -20,7 +20,7 @@ their environment.
 ![](HaPy_Pots_preview.gif)
 *Screen recorded with Gifcap by [joaomoreno](https://github.com/joaomoreno/gifcap)*
 
-## Usage
+## How to use / contributing
 As the project isn't connected to the WSGI server yet, the only way of checking the features is to
 download the development version.
 All required libraries to run the project can be found in the `requirement.txt` file. It is recommended
@@ -40,5 +40,3 @@ database won't be available.*
 4. `flask run`
 5. open the link generated in terminal
 6. Have fun :)
-
-## Contributing
