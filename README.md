@@ -1,4 +1,4 @@
-# HapPy Pots
+# HapPy Pots 🪴
 A collaboration project with my girlfriend for a Python developer program in 2020.
 
 ## Short description
@@ -25,4 +25,17 @@ As the project isn't connected to the WSGI server yet, the only way of checking 
 download the development version.
 All required libraries to run the project can be found in the `requirement.txt` file. It is recommended
 to set up a [virtual environment](https://docs.python.org/3/library/venv.html), and install all libraries 
-there to avoid unexpected issues.
+there to avoid unexpected issues of running the Flask app (for this project, the virtual environment folder was
+named `hapy_pots_venv`).
+---
+**diclaimer:**
+To run the project completely, both `HaPy Pots` and `HRPi` folders are required, as the second one runs on the RaspberryPi
+virtual machine to mimic sensor changes. The app runs fine without it, but "Refresh" buttons will not work, as the RPi
+database won't be available.
+
+### Steps
+1. download the `HaPy Pots` file to your computer
+2. set up a virtual environment for the project and activate it
+3. `pip install -r requirements.txt`
+4. `flask run`
+5. open the link generated in terminal
